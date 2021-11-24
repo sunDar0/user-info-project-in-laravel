@@ -7,6 +7,25 @@
 * php : 7.4
 * mysql - innodb
 * nginx
+## docker
+### prebuild
+* 프로젝트를 올리기 위한 운영체제와 웹서버 기타 설정정보를 위한 도커 이미지(자주 변경되지 않음)
+* ~~~bash
+  cd /test-project1/.docker
+  docker build -t prebuild:t1 .
+  ~~~
+### test-project(source)
+* 실질적인 변경이 잦은 코드와 패키지들을 위한 도커 이미지
+* docker run으로 실행
+* ~~~bash
+  cd /test-project1
+  docker build -t test-project:0.1 .
+  
+  #.....processing
+  #.....success
+  
+  docker run -d -p 8000:80 test-project:0.1
+  ~~~
 ## db : test_db
 ### table
 * user - 고객 정보 테이블
