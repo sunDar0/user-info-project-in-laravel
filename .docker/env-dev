@@ -20,7 +20,7 @@ DB_PASSWORD=
 TEST_DB_CONNECTION=mysql
 TEST_DB_HOST=host.docker.internal #컨테이너 띄울때 로컬로 접근할 수 있게 해주는 주소
 TEST_DB_PORT=3306
-TEST_DB_DATABASE=study_db
+TEST_DB_DATABASE=test_db
 TEST_DB_USERNAME=root
 TEST_DB_PASSWORD=ASDF!qwer2
 
