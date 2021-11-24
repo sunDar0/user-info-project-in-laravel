@@ -10,7 +10,36 @@
 ## db : test_db
 ### table
 * user - 고객 정보 테이블
+    * ~~~mysql
+          CREATE TABLE `user` (
+            `id` int NOT NULL AUTO_INCREMENT,
+            `name` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '',
+            `nick_name` varchar(30) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '',
+            `password` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '',
+            `tel` int NOT NULL,
+            `gender` varchar(1) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT '',
+            `email` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '',
+            `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+            `updated_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+            PRIMARY KEY (`id`)
+          ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+      ~~~
 * order - 주문 정보 테이블
+    * ~~~mysql
+          CREATE TABLE `order` (
+            `id` int unsigned NOT NULL AUTO_INCREMENT,
+            `user_id` int NOT NULL,
+            `order_id` varchar(12) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+            `order_date` datetime NOT NULL,
+            `payment_date` datetime DEFAULT NULL,
+            `product_name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '',
+            `created_at` datetime DEFAULT CURRENT_TIMESTAMP,
+            `updated_at` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+            PRIMARY KEY (`id`),
+            KEY `foregin-user-id` (`user_id`),
+            CONSTRAINT `foregin-user-id` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`)
+          ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+      ~~~
 
 
 ## API
