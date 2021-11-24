@@ -1,0 +1,94 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "TestProject API Documentation",
+        "description": "회원정보 조회, 주문정보 조회 페이지",
+        "version": "0.0.1"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:8000",
+            "description": "회원정보 조회, 주문정보 조회 서버"
+        }
+    ],
+    "paths": {
+        "/api/join": {
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "회원가입",
+                "description": "회원가입하기",
+                "operationId": "join",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "nickName": {
+                                        "type": "string"
+                                    },
+                                    "password": {
+                                        "type": "string"
+                                    },
+                                    "tel": {
+                                        "type": "number"
+                                    },
+                                    "email": {
+                                        "type": "string"
+                                    },
+                                    "gender": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "User",
+            "description": "회원 정보"
+        },
+        {
+            "name": "Order",
+            "description": "주문 정보"
+        }
+    ],
+    "security": [
+        []
+    ]
+}
